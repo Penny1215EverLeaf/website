@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>作品集 · Portfolio</title>
+<meta name="description" content="个人作品集：策划案例 / 图片物料 / 视频物料 / 运营情况 / 个人简历">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="spotlight" id="spotlight" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<main class="home" id="home">
+  <div class="scene" id="scene">
+    <!-- 铺满视口的模糊底图：只在照片需要留白时透出来，不形成黑边分区 -->
+    <img class="scene-fill" src="assets/desk.jpg" alt="" aria-hidden="true">
+    <!-- 舞台：与底图同为 3:2，热区按百分比贴在同一张照片上，保证物件精确对位 -->
+    <div class="stage" id="stage">
+      <img class="scene-bg" src="assets/desk.jpg" alt="一张放着电脑、文件夹、相框与工牌的工位">
+      <div class="scene-shade"></div>
+      <div class="hotzones" id="hotzones"></div>
+    </div>
+
+    <!-- 极小的悬浮铭牌与提示，直接叠在照片上，不再是独立的页眉/页脚分区 -->
+    <div class="hud">
+      <div class="hud-brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <b class="brand-name" id="brandName">QYY</b>
+        <span class="brand-role" id="brandRole">内容策划 · 新媒体运营</span>
+      </div>
+      <div class="hud-hint" id="topbarHint">点击发光物件 · 就地查看内容</div>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="作品分类"></nav>
+</main>
+
+<!-- 原地浮层：桌面照片保持可见并整体模糊，内容就地弹出 -->
+<div class="view" id="view" hidden>
+  <button class="ov-close" id="backBtn" type="button" aria-label="关闭浮层">✕</button>
+  <div class="view-body" id="viewBody"></div>
+</div>
+
+<div class="lightbox" id="lightbox" hidden></div>
+<div class="toast" id="toast" role="status"></div>
+
+<!-- 背景音乐：循环播放，左上角小按钮控制 -->
+<button class="bgm-toggle" id="bgmToggle" type="button" aria-label="暂停背景音乐">
+  <span class="bgm-note" aria-hidden="true">♪</span>
+</button>
+<audio id="bgm" src="assets/bgm/bgm.mp3" loop preload="auto"></audio>
+
+<script src="data.js"></script>
+<script src="gallery.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
